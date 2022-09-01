@@ -16,32 +16,45 @@ import TodoForm from "./TodoForm";
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
-function TodoApp(initialTodos) {
+function TodoApp({ initialTodos }) {
 
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
   function create(newTodo) {
-
+    let newTodoItem = { ...newTodo, id: uuid() };
+    setTodos(todos => [...todos, newTodoItem]);
   }
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
+    let updatedTodos = (todos.map(todo => {
+      if (todo.id === updatedTodo.id) {
+        return updatedTodo;
+      } else {
+        return todo;
+      }
+    }));
+    setTodos(updatedTodos);
   }
 
   /** delete a todo by id */
   function remove(id) {
-
-
+    setTodos(todos.filter(todo => todo.id !== id));
   }
 
   return (
     <main className="TodoApp">
       <div className="row">
-
         <div className="col-md-6">
-          <EditableTodoList /> OR
-          <span className="text-muted">You have no todos.</span>
+          <EditableTodoList
+            todos={todos}
+            update={update}
+            remove={remove} />
+
+          {todos.length === 0 &&
+            <span className="text-muted">You have no todos.</span>
+          }
         </div>
 
         <div className="col-md-6">
@@ -53,7 +66,7 @@ function TodoApp(initialTodos) {
 
           <section>
             <h3 className="mb-3">Add Nü</h3>
-            <TodoForm />
+            <TodoForm handleSave={create} />
           </section>
         </div>
 

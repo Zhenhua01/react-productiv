@@ -11,39 +11,37 @@ import TodoForm from "./TodoForm";
  * - remove(): fn to call to remove a todo
  *
  * State
- * -isEditing: Bool
+ * - isEditing: Bool
+ *
  * EditableTodoList -> EditableTodo -> { Todo, TodoForm }
  */
 
 function EditableTodo({ todo, update, remove }) {
 
   const [isEditing, setIsEditing] = useState(false);
+
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setIsEditing(true);
-
+    setIsEditing(isEditing ? false : true);
   }
 
   /** Call remove fn passed to this. */
   function handleDelete() {
-
-    remove();
+    remove(todo.id);
   }
 
   /** Edit form saved; toggle isEditing and update in ancestor. */
   function handleSave(formData) {
-
-
+    toggleEdit();
+    update(formData);
   }
 
   return (
     <div className="EditableTodo">
 
-      EITHER
-      {isEditing && <TodoForm />}
+      {isEditing &&
+      <TodoForm initialFormData={todo} handleSave={handleSave}/>}
 
-
-      OR
       {!isEditing &&
         <div className="mb-3">
           <div className="float-end text-sm-end">
