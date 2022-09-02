@@ -22,7 +22,7 @@ function EditableTodo({ todo, update, remove }) {
 
   /** Toggle if this is being edited */
   function toggleEdit() {
-    setIsEditing(isEditing ? false : true);
+    setIsEditing(!isEditing);
   }
 
   /** Call remove fn passed to this. */

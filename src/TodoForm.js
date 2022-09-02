@@ -57,6 +57,7 @@ function TodoForm({
           onChange={handleChange}
           value={formData.description}
           aria-label="Description"
+          required
         />
       </div>
 

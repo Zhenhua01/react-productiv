@@ -1,6 +1,8 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import TopTodo from "./TopTodo";
+import TodoApp from "./TodoApp";
+
 const todos = [
   {
     id: 1,
@@ -21,20 +23,11 @@ const todos = [
     priority: 3,
   },
 ];
-describe("basic rendering", function () {
 
+describe("test TopTodo", function () {
 
   it("renders without crashing", function () {
     render(<TopTodo todos={todos} />);
-
-  });
-
-  it("renders correct todo", function () {
-    const { container, debug } =
-      render(<TopTodo todos={todos} />);
-    debug();
-    const todo = container.querySelector('.Todo');
-    expect(todo).toContainHTML("Make dinner");
 
   });
 
@@ -45,5 +38,32 @@ describe("basic rendering", function () {
 
   });
 
+  it("renders correct todo", function () {
+    const { container } =
+      render(<TopTodo todos={todos} />);
+
+    const todo = container.querySelector('.Todo');
+    expect(todo).toContainHTML("Make dinner");
+
+  });
+
+  it("checks Top Todo is empty", function () {
+    const { container } =
+      render(<TodoApp initialTodos={[]} />);
+
+    const todo = container.querySelector('.TodoApp');
+    expect(todo).not.toContainHTML("Top Todo");
+
+  });
+
+  // it("Top Todo changes when priority changes", function () {
+  //   const { container } =
+  //     render(<TodoApp initialTodos={todos} />);
+
+  //   const todo = container.querySelectorAll('.Todo');
+  //   expect(todo).toContainHTML("Make dinner");
+
+
+  // });
 
 });

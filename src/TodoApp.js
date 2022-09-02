@@ -64,7 +64,6 @@ function TodoApp({ initialTodos }) {
               <TopTodo todos={todos} />
             </section>}
 
-
           <section>
             <h3 className="mb-3">Add Nü</h3>
             <TodoForm handleSave={create} />

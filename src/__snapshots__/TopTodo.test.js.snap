@@ -1,10 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic rendering matches snapshot 1`] = `
+exports[`test TopTodo matches snapshot 1`] = `
 <div>
   <div
     class="Todo"
-    id="2"
   >
     <div>
       <b>
