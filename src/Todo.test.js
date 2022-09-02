@@ -15,7 +15,7 @@ describe("basic rendering", function () {
   });
 
   it("matches snapshot", function () {
-    const { container } =
+    const { container, debug } =
       render(
         <Todo id={1}
           title={"nope"}
@@ -24,6 +24,7 @@ describe("basic rendering", function () {
 
         />
       );
+    debug();
     expect(container).toMatchSnapshot();
 
   });

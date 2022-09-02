@@ -21,15 +21,15 @@ describe("test TopTodo", function () {
   });
 
   it("can create a new Todo", function () {
-    const { container } = render(<TodoApp initialTodos={[]} />);
+    const { container, debug } = render(<TodoApp initialTodos={[]} />);
 
-    expect(container.querySelector(".Todo")).not.toBeInTheDocument()
+    expect(container.querySelector(".Todo")).not.toBeInTheDocument();
 
     const titleInput = container.querySelector("#newTodo-title");
     const descriptionInput = container.querySelector("#newTodo-description");
     const priorityInput = container.querySelector("#newTodo-priority");
     const submitBtn = container.querySelector(".NewTodoForm-addBtn");
-
+    debug();
     // fill out the form
     fireEvent.change(titleInput, { target: { value: "new_todo" } });
     fireEvent.change(descriptionInput, { target: { value: "new_description" } });
