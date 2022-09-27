@@ -12,12 +12,12 @@ import TodoForm from "./TodoForm";
  *
  * State:
  * - todos: array of [ todo, ... ]
+ * - quote: inspirational quote object with text and author
  *
  * App -> TodoApp -> { TodoForm, EditableTodoList }
  */
 
 function TodoApp({ initialTodos }) {
-
   const [todos, setTodos] = useState(initialTodos);
 
   /** add a new todo to list */
@@ -28,13 +28,9 @@ function TodoApp({ initialTodos }) {
 
   /** update a todo with updatedTodo */
   function update(updatedTodo) {
-    let updatedTodos = (todos.map(todo => {
-      if (todo.id === updatedTodo.id) {
-        return updatedTodo;
-      } else {
-        return todo;
-      }
-    }));
+    let updatedTodos = (todos.map(todo =>
+      todo.id === updatedTodo.id ? updatedTodo : todo,
+    ));
     setTodos(updatedTodos);
   }
 
@@ -47,6 +43,7 @@ function TodoApp({ initialTodos }) {
     <main className="TodoApp">
       <div className="row">
         <div className="col-md-6">
+          <h3 className="mb-3">Todos</h3>
           <EditableTodoList
             todos={todos}
             update={update}
@@ -60,7 +57,7 @@ function TodoApp({ initialTodos }) {
         <div className="col-md-6">
           {todos.length !== 0 &&
             <section className="mb-4">
-              <h3>Top Todo</h3>
+              <h3 className="mb-3">Top Todo</h3>
               <TopTodo todos={todos} />
             </section>}
 
@@ -76,6 +73,3 @@ function TodoApp({ initialTodos }) {
 }
 
 export default TodoApp;
-
-
-

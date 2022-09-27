@@ -1,5 +1,6 @@
 import React from "react";
 import TodoApp from "./TodoApp";
+import QuoteApp from "./QuoteApp";
 import Footer from "./Footer";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
@@ -18,6 +19,10 @@ function App() {
           <p className="lead">The best name in todo list management.</p>
         </div>
       </header>
+
+      <section>
+        <QuoteApp/>
+      </section>
 
       <section className="container mt-4">
         <TodoApp initialTodos={[

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/6</span>
-            </div>
-        
-            
-            <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
-                <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">75% </span>
-                <span class="quiet">Functions</span>
+                <span class="quiet">Branches</span>
                 <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.66% </span>
+                <span class="strong">25% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/4</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">33.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>2/6</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -131,8 +131,7 @@
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
 <a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,17 +150,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,7 +168,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14x</span>
+<span class="cline-any cline-yes">23x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,15 +203,14 @@
 import Todo from "./Todo";
 import TodoForm from "./TodoForm";
 &nbsp;
-&nbsp;
 /** Show editable todo item.
  *
- * Props
+ * Props:
  * - todo
  * - update(): fn to call to update a todo
  * - remove(): fn to call to remove a todo
  *
- * State
+ * State:
  * - isEditing: Bool
  *
  * EditableTodoList -&gt; EditableTodo -&gt; { Todo, TodoForm }
@@ -224,13 +221,13 @@ function EditableTodo({ todo, update, remove }) {
   const [isEditing, setIsEditing] = useState(false);
 &nbsp;
   /** Toggle if this is being edited */
-  function toggleEdit() {
-    setIsEditing(!isEditing);
+  function <span class="fstat-no" title="function not covered" >toggleEdit(</span>) {
+<span class="cstat-no" title="statement not covered" >    setIsEditing(!isEditing);</span>
   }
 &nbsp;
   /** Call remove fn passed to this. */
-  function handleDelete() {
-    remove(todo.id);
+  function <span class="fstat-no" title="function not covered" >handleDelete(</span>) {
+<span class="cstat-no" title="statement not covered" >    remove(todo.id);</span>
   }
 &nbsp;
   /** Edit form saved; toggle isEditing and update in ancestor. */
@@ -243,7 +240,9 @@ function EditableTodo({ todo, update, remove }) {
     &lt;div className="EditableTodo"&gt;
 &nbsp;
       {isEditing &amp;&amp;
-      &lt;TodoForm initialFormData={todo} handleSave={handleSave}/&gt;}
+<span class="branch-1 cbranch-no" title="branch not covered" >        &lt;TodoForm</span>
+          initialFormData={todo}
+          handleSave={handleSave} /&gt;}
 &nbsp;
       {!isEditing &amp;&amp;
         &lt;div className="mb-3"&gt;
@@ -259,10 +258,8 @@ function EditableTodo({ todo, update, remove }) {
               Del
             &lt;/button&gt;
           &lt;/div&gt;
-          &lt;Todo title={todo.title}
-            description={todo.description}
-            priority={todo.priority}
-            id={todo.id} /&gt;
+&nbsp;
+          &lt;Todo todo={todo} /&gt;
         &lt;/div&gt;}
 &nbsp;
     &lt;/div&gt;
@@ -277,7 +274,7 @@ export default EditableTodo;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-02T18:50:49.957Z
+                at 2022-09-27T06:48:37.039Z
             </div>
         <script src="prettify.js"></script>
         <script>

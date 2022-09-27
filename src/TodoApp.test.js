@@ -40,7 +40,4 @@ describe('Tests TodoApp component', function () {
     expect(container).not.toContainHTML("Top Todo");
   });
 
-
-
-
 });

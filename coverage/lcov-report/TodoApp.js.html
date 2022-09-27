@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">41.66% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/12</span>
+                <span class='fraction'>2/10</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">14.28% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/7</span>
+                <span class='fraction'>1/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">40% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>4/10</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
@@ -138,9 +138,7 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a>
-<a name='L77'></a><a href='#L77'>77</a>
-<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -160,22 +158,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -185,7 +179,9 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -231,29 +227,25 @@ import TodoForm from "./TodoForm";
  *
  * State:
  * - todos: array of [ todo, ... ]
+ * - quote: inspirational quote object with text and author
  *
  * App -&gt; TodoApp -&gt; { TodoForm, EditableTodoList }
  */
 &nbsp;
 function TodoApp({ initialTodos }) {
-&nbsp;
   const [todos, setTodos] = useState(initialTodos);
 &nbsp;
   /** add a new todo to list */
-  function create(newTodo) {
-    let newTodoItem = { ...newTodo, id: uuid() };
-    setTodos(todos =&gt; [...todos, newTodoItem]);
+  function <span class="fstat-no" title="function not covered" >create(</span>newTodo) {
+    let newTodoItem = <span class="cstat-no" title="statement not covered" >{ ...newTodo, id: uuid() };</span>
+<span class="cstat-no" title="statement not covered" >    setTodos(<span class="fstat-no" title="function not covered" >to</span>dos =&gt; <span class="cstat-no" title="statement not covered" >[...todos, newTodoItem])</span>;</span>
   }
 &nbsp;
   /** update a todo with updatedTodo */
   function <span class="fstat-no" title="function not covered" >update(</span>updatedTodo) {
-    let updatedTodos = (<span class="cstat-no" title="statement not covered" >todos.map(<span class="fstat-no" title="function not covered" >to</span>do =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >      if (todo.id === updatedTodo.id) {</span>
-<span class="cstat-no" title="statement not covered" >        return updatedTodo;</span>
-      } else {
-<span class="cstat-no" title="statement not covered" >        return todo;</span>
-      }
-    }));
+    let updatedTodos = (<span class="cstat-no" title="statement not covered" >todos.map(<span class="fstat-no" title="function not covered" >to</span>do =&gt;</span>
+<span class="cstat-no" title="statement not covered" >      todo.id === updatedTodo.id ? updatedTodo : todo,</span>
+    ));
 <span class="cstat-no" title="statement not covered" >    setTodos(updatedTodos);</span>
   }
 &nbsp;
@@ -266,6 +258,7 @@ function TodoApp({ initialTodos }) {
     &lt;main className="TodoApp"&gt;
       &lt;div className="row"&gt;
         &lt;div className="col-md-6"&gt;
+          &lt;h3 className="mb-3"&gt;Todos&lt;/h3&gt;
           &lt;EditableTodoList
             todos={todos}
             update={update}
@@ -279,7 +272,7 @@ function TodoApp({ initialTodos }) {
         &lt;div className="col-md-6"&gt;
           {todos.length !== 0 &amp;&amp;
             &lt;section className="mb-4"&gt;
-              &lt;h3&gt;Top Todo&lt;/h3&gt;
+              &lt;h3 className="mb-3"&gt;Top Todo&lt;/h3&gt;
               &lt;TopTodo todos={todos} /&gt;
             &lt;/section&gt;}
 &nbsp;
@@ -294,14 +287,15 @@ function TodoApp({ initialTodos }) {
   );
 }
 &nbsp;
-export default TodoApp;</pre></td></tr></table></pre>
+export default TodoApp;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-09-02T18:50:49.957Z
+                at 2022-09-27T06:48:37.039Z
             </div>
         <script src="prettify.js"></script>
         <script>
